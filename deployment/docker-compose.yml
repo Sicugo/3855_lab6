@@ -11,7 +11,8 @@ services:
     ports: 
       - "9092:9092" 
     hostname: kafka 
-    environment: 
+    environment:
+      KAFKA_HEAP_OPTS: "-Xmx256M -Xms128M"
       KAFKA_CREATE_TOPICS: "events:1:1" # topic:partition:replicas 
       KAFKA_ADVERTISED_HOST_NAME: ec2-54-200-247-172.us-west-2.compute.amazonaws.com  # docker-machine ip 
       KAFKA_LISTENERS: INSIDE://:29092,OUTSIDE://:9092 
